@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Letter 🌌</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="stars"></div>
+    <div id="heart-rain"></div>
+
+    <div class="main-container">
+        <div class="envelope-wrapper" id="envelope-wrapper">
+            <div class="envelope" onclick="openLetter()">
+                <div class="letter">
+                    <div class="text">
+                        <h2 class="letter-title">To My Special Someone 💖</h2>
+                        <p id="typeText"></p>
+                        
+                        <div id="response-options" style="opacity: 0; transition: 1s; margin-top: 25px; display: flex; justify-content: center; gap: 20px;">
+    <button class="btn-yes" onclick="sayYes()" style="background: #ff4d6d; color: white; border: none; padding: 12px 25px; border-radius: 10px; cursor: pointer; font-weight: bold; font-size: 18px;">YES! ❤️</button>
+    
+    <button id="no-btn" onmouseover="moveNo()" onclick="moveNo()" style="background: #eee; color: #555; border: none; padding: 12px 25px; border-radius: 10px; cursor: pointer; font-size: 18px;">No...</button>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="btn-open" onclick="openLetter()">OPEN 💌</button>
+            <button class="btn-close" onclick="closeLetter()">CLOSE</button>
+        </div>
+    </div>
+
+    <audio id="music" loop><source src="music.mp3" type="audio/mpeg"></audio>
+    <script src="script.js"></script>
+</body>
+</html>

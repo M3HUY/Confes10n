@@ -1,0 +1,324 @@
+body {
+    margin: 0;
+    height: 100vh;
+    /* Use the exact filename from your folder here */
+    background: #000814 url('starrynight.avif.avif') no-repeat center center fixed;
+    background-size: cover;
+    
+    /* This keeps everything centered on top of the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+.main-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    /* Use the exact filename from your folder here */
+    background: #000814 url('starrynight.avif.avif') no-repeat center center fixed;
+    background-size: cover;
+    
+    /* This keeps everything centered on top of the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+.main-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Envelope Container */
+.envelope-wrapper {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: #ff6b6b;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+}
+
+/* Top Flap (The triangle that opens) */
+.envelope-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 4;
+    border-top: 100px solid #ff4d4d;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    transform-origin: top;
+    transition: 0.6s ease-in-out;
+}
+
+/* Front Flaps (The pocket) */
+.envelope-wrapper::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+    border-left: 150px solid #ff5e5e;
+    border-right: 150px solid #ff5e5e;
+    border-bottom: 100px solid #ff4242;
+    border-top: 100px solid transparent;
+    border-radius: 0 0 10px 10px;
+}
+
+/* The Letter */
+.letter {
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    width: 280px;
+    height: 180px;
+    background: white;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    transition: 0.8s;
+    z-index: 2;
+    overflow-y: auto;
+}
+
+/* Open State */
+.envelope-wrapper.open::before {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope-wrapper.open .letter {
+    transform: translateY(-130px);
+    z-index: 2;
+}
+
+/* Text Styles */
+.letter-title { color: #ff4d6d; text-align: center; margin-top: 0; }
+#typeText { white-space: pre-wrap; font-size: 15px; color: #333; }
+
+/* Buttons */
+.buttons { display: flex; gap: 15px; }
+.buttons button {
+    padding: 10px 25px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-open { background: #ff4d4d; color: white; }
+.btn-close { background: #333; color: white; }
+
+/* Background Stars */
+#stars::after {
+    content: "";
+    position: fixed;
+    top: 0; width: 2px; height: 2px; background: white;
+    box-shadow: 10vw 20vh white, 30vw 40vh white, 70vw 10vh white, 90vw 80vh white, 50vw 50vh white, 20vw 90vh white;
+}
+
+/* Heart Rain */
+.heart-drop {
+    position: fixed;
+    top: -50px;
+    pointer-events: none;
+    animation: fall 4s linear forwards;
+}
+@keyframes fall { to { transform: translateY(110vh); } }
+/* --- EXTRA EFFECTS STYLES --- */
+.sparkle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    animation: sparkleFade 0.8s forwards;
+}
+@keyframes sparkleFade {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+.floating-star {
+    position: fixed;
+    color: white;
+    font-size: 10px;
+    pointer-events: none;
+    z-index: 1;
+    animation: float linear infinite;
+}
+@keyframes float {
+    from { transform: translateY(100vh) rotate(0deg); }
+    to { transform: translateY(-10vh) rotate(360deg); }
+}
+
+.shooting-star {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: linear-gradient(90deg, white, transparent);
+    box-shadow: 0 0 10px white;
+    pointer-events: none;
+    z-index: 2;
+    animation: shoot 3s linear infinite;
+}
+@keyframes shoot {
+    0% { transform: translate(-10vw, -10vh) rotate(45deg); opacity: 1; }
+    20% { transform: translate(110vw, 110vh) rotate(45deg); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.click-heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 20px;
+    animation: heartExplode 1s ease-out forwards;
+}
+@keyframes heartExplode {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: translate(var(--dx), var(--dy)) scale(1.5); opacity: 0; }
+}
+
+/* Text Styles */
+.letter-title { color: #ff4d6d; text-align: center; margin-top: 0; }
+#typeText { white-space: pre-wrap; font-size: 15px; color: #333; }
+
+/* Buttons */
+.buttons { display: flex; gap: 15px; }
+.buttons button {
+    padding: 10px 25px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-open { background: #ff4d4d; color: white; }
+.btn-close { background: #333; color: white; }
+
+/* Background Stars */
+#stars::after {
+    content: "";
+    position: fixed;
+    top: 0; width: 2px; height: 2px; background: white;
+    box-shadow: 10vw 20vh white, 30vw 40vh white, 70vw 10vh white, 90vw 80vh white, 50vw 50vh white, 20vw 90vh white;
+}
+
+/* Heart Rain */
+.heart-drop {
+    position: fixed;
+    top: -50px;
+    pointer-events: none;
+    animation: fall 4s linear forwards;
+}
+@keyframes fall { to { transform: translateY(110vh); } }
+/* --- EXTRA EFFECTS STYLES --- */
+.sparkle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    animation: sparkleFade 0.8s forwards;
+}
+@keyframes sparkleFade {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+.floating-star {
+    position: fixed;
+    color: white;
+    font-size: 10px;
+    pointer-events: none;
+    z-index: 1;
+    animation: float linear infinite;
+}
+@keyframes float {
+    from { transform: translateY(100vh) rotate(0deg); }
+    to { transform: translateY(-10vh) rotate(360deg); }
+}
+
+.shooting-star {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: linear-gradient(90deg, white, transparent);
+    box-shadow: 0 0 10px white;
+    pointer-events: none;
+    z-index: 2;
+    animation: shoot 3s linear infinite;
+}
+@keyframes shoot {
+    0% { transform: translate(-10vw, -10vh) rotate(45deg); opacity: 1; }
+    20% { transform: translate(110vw, 110vh) rotate(45deg); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.click-heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 20px;
+    animation: heartExplode 1s ease-out forwards;
+}
+@keyframes heartExplode {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: translate(var(--dx), var(--dy)) scale(1.5); opacity: 0; }
+}
+.letter {
+    padding: 40px !important; /* Adds space inside the paper so text doesn't hit the edges */
+    text-align: center;
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9); /* Makes it look like real paper */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+#typeText {
+    font-family: 'Courier New', Courier, monospace; /* Optional: gives it a typewriter feel */
+    font-size: 20px !important;
+    line-height: 1.6;
+    color: #444;
+}
+/* --- TWINKLING FALLING STARS --- */
+.falling-star {
+    position: fixed;
+    top: -20px;
+    color: white;
+    font-size: 15px;
+    text-shadow: 0 0 5px white, 0 0 10px white;
+    pointer-events: none;
+    z-index: 1;
+    /* This handles the falling and the twinkling at the same time */
+    animation: starFall linear forwards, starTwinkle 1.5s infinite ease-in-out;
+}
+
+@keyframes starFall {
+    to { transform: translateY(110vh); }
+}
+
+@keyframes starTwinkle {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); filter: brightness(0.5); }
+    50% { opacity: 1; transform: scale(1.2); filter: brightness(1.5); box-shadow: 0 0 15px white; }
+}
