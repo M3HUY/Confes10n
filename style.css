@@ -2,7 +2,7 @@ body {
     margin: 0;
     height: 100vh;
     /* Use the exact filename from your folder here */
-    background: #000814 url('starrynight.avif.avif') no-repeat center center fixed;
+    background: #000814 url('starrynight.avif') no-repeat center center fixed;
     background-size: cover;
     
     /* This keeps everything centered on top of the background */
@@ -26,7 +26,7 @@ body {
     margin: 0;
     height: 100vh;
     /* Use the exact filename from your folder here */
-    background: #000814 url('starrynight.avif.avif') no-repeat center center fixed;
+    background: #000814 url('starrynight.avif') no-repeat center center fixed;
     background-size: cover;
     
     /* This keeps everything centered on top of the background */
